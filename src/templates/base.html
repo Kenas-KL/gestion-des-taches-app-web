@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    {% block title %}
+    <title>SoftPlanetCompany</title>
+    {% endblock  %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+<nav>
+    <h2>Soft_Planet_Company</h2>
+    <div class="options">
+        <a href="{% url 'posts:acceuil' %}" class="-">Acceuil</a>
+        {% if request.user.is_authenticated and request.user.is_staff %}
+        <a href="{% url 'posts:add' %}" class="-">Ajouter</a>
+        {% endif %}
+        <a href="{% url 'posts:logout' %}">Se déconnecter</a>
+    </div>
+</nav>
+
+<div class="main" id="blog">
+    <div class="rest">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+</div>
+
+</body>
+</html>
