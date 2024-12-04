@@ -29,10 +29,7 @@ class TachesUpdate(UpdateView):
     model = Tache
     form_class = TacheForm
     template_name = "posts/tache_edit.html"
-    fields = [
-        'title', 'description', 'date_de_debut', 'date_de_fin', 'priorite', 'statut', 'avancement',
-        'commentaires'
-    ]
+    
 
 
 
@@ -56,11 +53,10 @@ def signup(request):
             return render(request, "posts/signup.html", {"error": "Les mots de passe ne colent pas"})
 
         CustomUser.objects.create_user(username=username, password=password1)
-        return redirect('login/home')
-
+        return render(request,'posts/tache_list.html')
 
     return render(request, "posts/signup.html")
 
 def logout_view(request):
     logout(request)
-    return HttpResponse("<h2>Déconnecté<h2>")
+    return render(request,"posts/signup.html")
