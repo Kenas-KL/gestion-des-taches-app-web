@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title> {{ post.title }} </title>
+{% endblock %}
+
+{% block content %}
+
+<article class="post-detail">
+  <h2>Tache:<br>{{ post.title }}</h2>
+  <ul>
+    <li> <strong>Priorité :</strong> {{ post.priorite }}</li>
+    <br>
+    <li><strong>Responsable : {{ post.responsable }}</strong></li>
+    <br>
+    <li><strong>Avancement :</strong> {{ post.avancement }}%</li>
+    <li> <strong>Date de debut :</strong>  {{ post.date_de_debut }}</li>
+    <li><strong>Date de fin :</strong>  {{ post.date_de_fin }}</li>
+    <li><strong>Statut :</strong> {{ post.statut }}</li>
+  </ul>
+
+  <p><strong>Description:</strong><br> {{ post.description }}</p>
+  <p><strong>Commentaires:</strong><br> {{ post.commentaires }}</p>
+
+</article>
+
+
+{% endblock %}
